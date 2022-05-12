@@ -38,6 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Internal
+    'accounts.apps.AccountsConfig',
+    'base.apps.BaseConfig',
+    'category.apps.CategoryConfig',
+
+    # External
 ]
 
 MIDDLEWARE = [
@@ -131,6 +138,6 @@ MEDIA_URL = 'media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Auth User Model
-# AUTH_USER_MODEL = 'accounts.CustomUser'
+AUTH_USER_MODEL = 'accounts.Account'
 
 # LOGIN_URL = 'login'
