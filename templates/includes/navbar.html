@@ -1,0 +1,60 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-4">
+  <div class="container-fluid px-lg-5">
+    <a class="navbar-brand" href="{% url 'index' %}">
+      <b>Otaku</b> <span class="opacity-75">Hub</span>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navBar"
+      aria-controls="navBar"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fal fa-bars"></i>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navBar">
+      <div class="me-auto"></div>
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'index' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'index' %}">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link active dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Dropdown
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a class="dropdown-item" href="{% url 'index' %}">Action</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex ms-5">
+        <input
+          class="form-control me-1"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button class="btn btn-primary" type="submit">
+          <i class="fal fa-search"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>

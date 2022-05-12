@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Otaku Hub</title>
+    <!-- Styles -->
+    {% include 'includes/links.html' %}
+
+    <!-- Block Style -->
+    {% block style %} {% endblock style %}
+    <!-- Block Style -->
+  </head>
+  <body>
+    <!-- Navbar -->
+    {% include 'includes/navbar.html' %}
+
+    <main>
+      <div class="container-fluid px-lg-5">
+        <!-- Block Content -->
+        {% block content %} {% endblock content %}
+        <!-- Block Content -->
+      </div>
+    </main>
+
+    <!-- Footer -->
+    {% include 'includes/footer.html' %}
+
+    <!-- Scripts -->
+    {% include 'includes/scripts.html' %}
+
+    <!-- Block Scripts -->
+    {% block scripts %} {% endblock scripts %}
+    <!-- Block Scripts -->
+  </body>
+</html>

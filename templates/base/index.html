@@ -1,0 +1,35 @@
+{% extends '../base.html' %}
+
+<!-- Static -->
+{% load static %}
+
+<!-- Block Content -->
+{% block content %}
+
+<div class="row gx-4 gy-4">
+  {% for product in products %}
+  <div class="col-lg-3 col-md-4 col-sm-6">
+    <div class="card shadow border-0">
+      {% if not product.image %}
+      <img src="..." class="card-img-top" alt="Dummy Image" />
+      {% else %}
+      <img
+        src="{{ product.image.url }}"
+        class="card-img-top"
+        alt="{{ product.name }}"
+      />
+      {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <h6>{{ product.price }}</h6>
+        <a href="#" class="btn btn-primary">Add To Cart</a>
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <div class="col-lg-12"></div>
+  {% endfor %}
+</div>
+
+{% endblock content %}
+<!-- Block Content -->
