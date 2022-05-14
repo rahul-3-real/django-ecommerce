@@ -6,6 +6,6 @@ from store.models import Product
 
 def index(request):
     template_name = 'base/index.html'
-    products = Product.objects.all()
+    products = Product.objects.all().filter(is_available=True)
     context = {'products': products}
     return render(request, template_name, context)

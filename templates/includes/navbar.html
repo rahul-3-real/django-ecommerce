@@ -24,23 +24,29 @@
           <a class="nav-link active" href="{% url 'index' %}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="{% url 'index' %}">Link</a>
+          <a class="nav-link active" href="{% url 'store' %}">Store</a>
         </li>
         <li class="nav-item dropdown">
           <a
-            class="nav-link active dropdown-toggle"
+            class="nav-link btn btn-sm btn-primary active dropdown-toggle"
             href="#"
             id="navbarDropdown"
             role="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            Dropdown
+            All Categories
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            {% for link in links %}
             <li>
-              <a class="dropdown-item" href="{% url 'index' %}">Action</a>
+              <a class="dropdown-item" href="{{ link.get_url }}">{{ link.name }}</a>
             </li>
+            {% empty %}
+            <li>
+              <span class="dropdown-item">No Categories Found</a>
+            </li>
+            {% endfor %}
           </ul>
         </li>
       </ul>
