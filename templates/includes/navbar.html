@@ -50,12 +50,12 @@
           </ul>
         </li>
       </ul>
-      <form class="d-flex ms-5 me-3">
+      <form action="{% url 'search' %}" method="GET" class="d-flex ms-5 me-3">
         <input
           class="form-control me-1"
           type="search"
           placeholder="Search"
-          aria-label="Search"
+          name="keyword"
         />
         <button class="btn btn-primary" type="submit">
           <i class="fal fa-search"></i>

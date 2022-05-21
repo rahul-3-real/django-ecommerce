@@ -9,10 +9,14 @@
 <div class="card shadow border-0 mb-3 bg-dark">
   <div class="card-body py-2 px-3">
     <div class="d-flex align-items-center justify-content-between">
+      {% if 'search' in request.path %}
+      <h3 class="text-light">Search</h3>
+      {% else %}
       <h3 class="text-light">Store</h3>
+      {% endif %}
       <span>
         <b class="text-light me-3">Total Product </b>
-        <i class="badge bg-light text-dark">{{ products.count }}</i>
+        <i class="badge bg-light text-dark">{{ product_count }}</i>
       </span>
     </div>
   </div>
@@ -93,6 +97,58 @@
         <h5>No products found</h5>
       </div>
       {% endfor %}
+      <div class="col-lg-12">
+        {% if products.has_other_pages %}
+        <ul class="pagination">
+          <!-- Previous Btn -->
+          {% if products.has_previous %}
+          <li class="page-item">
+            <a
+              class="page-link"
+              href="?page={{ products.previous_page_number }}"
+            >
+              Previous
+            </a>
+          </li>
+          {% else %}
+          <li class="page-item disabled">
+            <a class="page-link">Previous</a>
+          </li>
+          {% endif %}
+          <!-- Previous Btn -->
+
+          <!-- Paginations -->
+          {% for i in products.paginator.page_range %}
+          <!--  -->
+          {% if products.number == i %}
+          <li class="page-item active">
+            <a class="page-link">{{ i }}</a>
+          </li>
+          {% else %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+          </li>
+          {% endif %}
+          <!--  -->
+          {% endfor %}
+          <!-- Paginations -->
+
+          <!-- Next Btn -->
+          {% if products.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ products.next_page_number }}">
+              Next
+            </a>
+          </li>
+          {% else %}
+          <li class="page-item disabled">
+            <a class="page-link">Next</a>
+          </li>
+          {% endif %}
+          <!-- Next Btn -->
+        </ul>
+        {% endif %}
+      </div>
     </div>
   </div>
 </div>
