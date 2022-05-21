@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # Internal
     'accounts.apps.AccountsConfig',
     'base.apps.BaseConfig',
+    'cart.apps.CartConfig',
     'category.apps.CategoryConfig',
     'store.apps.StoreConfig',
 
@@ -72,6 +73,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'category.context_processors.menu_links',
+                'cart.context_processors.cart_counter',
             ],
         },
     },

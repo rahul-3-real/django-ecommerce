@@ -1,0 +1,35 @@
+{% extends '../base.html' %}
+
+<!-- Static -->
+{% load static %}
+
+<!-- Block Content -->
+{% block content %}
+
+<div class="row gx-5 gy-5">
+  <div class="col-lg-4">
+    <img src="{{ product.image.url }}" alt="" class="img-thumbnail" />
+  </div>
+  <div class="col-lg-8">
+    <h3 class="mt-4 mb-3">{{ product.name }}</h3>
+    <h4 class="mb-4">&#8377; {{ product.price }}</h4>
+    {% if product.stock <= 0 %}
+    <button class="btn btn-dark" disabled>Out Of Stock</button>
+    {% else %}
+    <!-- Cart Button -->
+    {% if in_cart %}
+    <a href="{% url 'add_to_cart' product.id %}" class="btn btn-success">
+      Added to Cart
+    </a>
+    <a href="{% url 'cart' %}" class="btn btn-outline-success"> View Cart </a>
+    {% else %}
+    <a href="{% url 'add_to_cart' product.id %}" class="btn btn-primary">
+      Add to Cart
+    </a>
+    {% endif %}
+    <!-- Cart Button -->
+    {% endif %}
+  </div>
+</div>
+{% endblock content %}
+<!-- Block Content -->
